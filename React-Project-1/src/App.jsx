@@ -1,12 +1,15 @@
-import "./App.module.css";
-import RecipeList from "./components/RecipeList";
+import React from 'react'
+import Products from './components/Products/Product'
 
-function App() {
+
+function App()
+ {
   return (
-    <>
-      <RecipeList></RecipeList>
-    </>
-  );
+    <div className='app'>
+    <h1> App Project</h1>
+    <Products/>
+    </div>
+  )
 }
 
-export default App;
+export default App
