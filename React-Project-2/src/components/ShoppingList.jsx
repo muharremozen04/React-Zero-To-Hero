@@ -40,7 +40,16 @@ function ShoppingList() {
             {list.map((item, index) => (
               <tr key={index}>
                 <td className="border px-4 py-2">
-                  <ListItem input={item} key={index} />
+                  <ListItem
+                    input={item}
+                    key={index}
+                    onDelete={(deletedItem) => {
+                      const updatedList = list.filter(
+                        (item) => item !== deletedItem
+                      );
+                      setList(updatedList);
+                    }}
+                  />
                 </td>
               </tr>
             ))}
