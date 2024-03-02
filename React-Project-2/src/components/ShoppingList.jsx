@@ -1,3 +1,5 @@
+// ShoppingList.js
+
 import { useState } from "react";
 import ListItem from "./ListItem";
 
@@ -13,6 +15,18 @@ function ShoppingList() {
     e.preventDefault();
     setList([...list, input]);
     setInput("");
+  };
+
+  const handleDelete = (deletedItem) => {
+    const updatedList = list.filter((item) => item !== deletedItem);
+    setList(updatedList);
+  };
+
+  const handleUpdate = (oldValue, newValue) => {
+    const updatedList = list.map((item) =>
+      item === oldValue ? newValue : item
+    );
+    setList(updatedList);
   };
 
   return (
@@ -43,12 +57,8 @@ function ShoppingList() {
                   <ListItem
                     input={item}
                     key={index}
-                    onDelete={(deletedItem) => {
-                      const updatedList = list.filter(
-                        (item) => item !== deletedItem
-                      );
-                      setList(updatedList);
-                    }}
+                    onDelete={handleDelete}
+                    onUpdate={handleUpdate}
                   />
                 </td>
               </tr>

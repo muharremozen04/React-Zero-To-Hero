@@ -7,6 +7,21 @@ function ListItem(props) {
     }
   };
 
+  const handleUpdate = () => {
+    const updatedValue = prompt(
+      "Market alışveriş listenizi güncelleyin:",
+      props.input
+    );
+
+    if (updatedValue === null || updatedValue.trim() === "") {
+      return;
+    }
+
+    if (props.onUpdate) {
+      props.onUpdate(props.input, updatedValue);
+    }
+  };
+
   return (
     <div className="ListItemContainer">
       <div className="listItem">
@@ -14,6 +29,14 @@ function ListItem(props) {
           <thead>
             <tr>
               <th className="border px-4 py-2">{props.input}</th>
+              <th>
+                <button
+                  onClick={handleUpdate}
+                  className="px-2 py-1 bg-green-500 text-white"
+                >
+                  Güncelle
+                </button>
+              </th>
               <th>
                 <button
                   onClick={handleDelete}
@@ -33,6 +56,7 @@ function ListItem(props) {
 ListItem.propTypes = {
   input: PropTypes.string,
   onDelete: PropTypes.func,
+  onUpdate: PropTypes.func,
 };
 
 export default ListItem;
