@@ -32,7 +32,7 @@ function ListItem(props) {
               <th>
                 <button
                   onClick={handleUpdate}
-                  className="px-2 py-1 bg-green-500 text-white"
+                  className="ml-2 px-2 py-1 bg-green-500 text-white"
                 >
                   Güncelle
                 </button>
@@ -40,7 +40,7 @@ function ListItem(props) {
               <th>
                 <button
                   onClick={handleDelete}
-                  className="px-2 py-1 bg-red-500 text-white"
+                  className="ml-2 px-2 py-1 bg-red-500 text-white"
                 >
                   Sil
                 </button>
