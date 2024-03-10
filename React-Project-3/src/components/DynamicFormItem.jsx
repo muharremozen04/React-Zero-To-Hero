@@ -1,18 +1,23 @@
-function DynamicFormItem() {
+import PropTypes from "prop-types";
+
+function DynamicFormItem({ input, onDelete }) {
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th className="border px-4 py-2">Form Listesi</th>
-          </tr>
-          <tr>
-            <th className="border px-4 py-2">Form Listesi</th>
-          </tr>
-        </thead>
-      </table>
-    </div>
+    <tr>
+      <td className="p-3 border">{input}</td>
+
+      <button
+        className="bg-red-500 text-white px-4 py-2 rounded"
+        onClick={() => onDelete(input)}
+      >
+        Sil
+      </button>
+    </tr>
   );
 }
+
+DynamicFormItem.propTypes = {
+  input: PropTypes.string,
+  onDelete: PropTypes.func,
+};
 
 export default DynamicFormItem;

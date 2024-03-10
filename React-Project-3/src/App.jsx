@@ -6,7 +6,7 @@ function App() {
       <div className="flex bg-gray-200 justify-center border-solid">
         <DynamicForm />
       </div>
-      <div className="flex bg-gray-200 justify-center border-solid">
+      <div>
         <DynamicFormItem />
       </div>
     </>
